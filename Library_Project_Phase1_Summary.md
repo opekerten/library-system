@@ -69,6 +69,7 @@ Here is the full plan we designed, tracking our progress from Phase 1 to Deploym
     - [x] Create `docker-compose.yml` for PostgreSQL
     - [x] Configure Flyway for Database Migrations
     - [x] Verify Application Context & DB Connection
+    - [x] **Setup Version Control (Git & GitHub)**
 - [ ] **Phase 2: Domain Modeling & Data Access**
     - [ ] Create `common` module for shared DTOs/Utils
     - [ ] Implement JPA Entities (starting with Books/Authors)
@@ -124,7 +125,17 @@ erDiagram
     }
 ```
 
-### Key Relationships
-1.  **User `1:N` Loans**: One user can borrow many books.
-2.  **Book `1:N` Loans**: A book title (like "Harry Potter") can appear in many loan records (history).
-    *   *Note*: In a complex system, we might separate `Book` (metadata) from `BookCopy` (physical item). For now, we will simplify by using `available_copies` on the `Book` table.
+---
+
+## 7. Version Control Cheat Sheet
+
+You successfully initialized Git and pushed to GitHub. Here is what the commands mean for your future reference:
+
+| Command | Meaning |
+| :--- | :--- |
+| **`git init`** | **Initialize**. Turns the current folder into a new Git repository (creates a hidden `.git` folder). |
+| **`git add .`** | **Stage All**. Tells Git to "watch" every file in the folder for the next save. The `.` means "current directory". |
+| **`git commit -m "msg"`** | **Save**. Takes a snapshot of the staged files. Always requires a message (`-m`) to explain *what* you changed. |
+| **`git branch -M main`** | **Rename Branch**. Modern Git uses `main` as the default branch name instead of `master`. This command renames it. |
+| **`git remote add origin`** | **Link to Cloud**. Connects your local folder to a specific URL on GitHub. `origin` is just the nickname for that URL. |
+| **`git push -u origin main`** | **Upload**. Sends your local commits to the server (`origin`). The `-u` flag saves this link so next time you can just type `git push`. |
